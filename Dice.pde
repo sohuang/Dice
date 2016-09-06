@@ -1,28 +1,38 @@
-void setup()
-{
+int counter;
+int dieSize = 30;
+int spacing = 10;
+
+void setup() {
+	size(370, 375);
 	noLoop();
 }
-void draw()
-{
-	//your code here
+
+void draw() {
+	background(0);
+	counter = 0;
+	for (int i = spacing; i < width - dieSize; i += dieSize + spacing) {
+		Die die = new Die(i, spacing);
+	}
 }
-void mousePressed()
-{
+
+void mousePressed() {
 	redraw();
 }
-class Die //models one single dice cube
-{
-	//variable declarations here
-	Die(int x, int y) //constructor
-	{
-		//variable initializations here
+
+class Die {
+	int myX, myY;
+	Die(int x, int y) {
+		myX = x;
+		myY = y;
+		roll();
+		show();
 	}
-	void roll()
-	{
-		//your code here
+	void roll() {
+		int dieNum = (int)(Math.random() * 6);
 	}
-	void show()
-	{
-		//your code here
+	void show() {
+		noStroke();
+		fill(255);
+		rect(myX, myY, dieSize, dieSize, 5);
 	}
 }
