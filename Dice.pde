@@ -5,15 +5,17 @@ int dieThird = dieSize / 3;
 int dieFour = dieHalf / 2;
 int dotSize = 5;
 int spacing = 10;
+PFont comic;
 
 void setup() {
 	size(370, 375);
 	noLoop();
+	comic = loadFont("ComicSansMS-48.vlw");
 	textAlign(CENTER, CENTER);
+	textFont(comic);
 }
 
 void draw() {
-	colorMode(RGB, 255, 255, 255);
 	background(0);
 	counter = 0;
 	for (int j = spacing; j < height / 2; j += dieSize + spacing) {
@@ -22,7 +24,7 @@ void draw() {
 		}
 	}
 	fill(255);
-	text(counter, width / 2, 3 * height / 4);
+	text("number: " + counter, width / 2, 3 * height / 4);
 }
 
 void mousePressed() {
@@ -44,7 +46,6 @@ class Die {
 	}
 	void show() {
 		noStroke();
-		colorMode(RGB, 255, 255, 255);
 		fill(255);
 		rect(myX, myY, dieSize, dieSize, 5);
 		showDots();
@@ -73,5 +74,6 @@ class Die {
 		int b = (int)(Math.random() * 50) + 20;
 		colorMode(HSB, 360, 100, 100);
 		fill(h, s, b);
+		colorMode(RGB, 255, 255, 255);
 	}
 }
