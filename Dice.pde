@@ -24,6 +24,7 @@ void draw() {
 		}
 	}
 	fill(255);
+	textSize(20);
 	text("number: " + counter, width / 2, 3 * height / 4);
 }
 
