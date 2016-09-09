@@ -6,7 +6,7 @@ int dieFour = dieHalf / 2;
 int dotSize = 5;
 int spacing = 10;
 PFont comic;
-int num1, num2, num3, num4, num5, num6;
+HashMap<String, Integer> n = new HashMap<String, Integer>();
 
 void setup() {
 	size(370, 375);
@@ -45,6 +45,12 @@ class Die {
 	void roll() {
 		myDieNum = (int)(Math.random() * 6) + 1;
 		counter += myDieNum;
+		for (int i = 1; i < 7; i++) {
+			if (i == myDieNum) {
+				n.put("n" + i, myDieNum);
+				System.out.println("worked");
+			}
+		}
 	}
 	void show() {
 		noStroke();
