@@ -6,6 +6,7 @@ int dieFour = dieHalf / 2;
 int dotSize = 5;
 int spacing = 10;
 PFont comic;
+int num1, num2, num3, num4, num5, num6;
 
 void setup() {
 	size(370, 375);
