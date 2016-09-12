@@ -6,7 +6,7 @@ int dieFour = dieHalf / 2;
 int dotSize = 5;
 int spacing = 10;
 PFont comic;
-HashMap<String, Integer> n = new HashMap<String, Integer>();
+HashMap<String, Integer> n;
 
 void setup() {
 	size(370, 375);
@@ -24,13 +24,26 @@ void draw() {
 			Die die = new Die(i, j);
 		}
 	}
+	showScore();
+	showStats();
+}
+
+void mousePressed() {
+	redraw();
+}
+
+void showScore() {
 	fill(255);
 	textSize(20);
 	text("number: " + counter, width / 2, 3 * height / 4);
 }
 
-void mousePressed() {
-	redraw();
+void showStats() {
+	int y = 200;
+	for (HashMap.Entry<String, Integer> entry : n.entrySet()) {
+		text(entry.getKey() + " " + entry.getValue(), 150, y);
+		y += 20;
+	}
 }
 
 class Die {
@@ -45,10 +58,10 @@ class Die {
 	void roll() {
 		myDieNum = (int)(Math.random() * 6) + 1;
 		counter += myDieNum;
+		n = new HashMap<String, Integer>();
 		for (int i = 1; i < 7; i++) {
 			if (i == myDieNum) {
 				n.put("n" + i, myDieNum);
-				System.out.println("worked");
 			}
 		}
 	}
