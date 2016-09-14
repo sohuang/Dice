@@ -1,3 +1,5 @@
+import java.util.*;
+
 int counter;
 int dieSize = 30;
 int dieHalf = dieSize / 2;
@@ -6,7 +8,6 @@ int dieFour = dieHalf / 2;
 int dotSize = 5;
 int spacing = 10;
 PFont comic;
-HashMap<String, Integer> hm;
 
 void setup() {
 	size(370, 375);
@@ -19,13 +20,12 @@ void setup() {
 void draw() {
 	background(0);
 	counter = 0;
-	for (int j = spacing; j < height / 2; j += dieSize + spacing) {
+	for (int j = spacing; j < (height * 3 / 4); j += dieSize + spacing) {
 		for (int i = spacing; i < width - dieSize; i += dieSize + spacing) {
 			Die die = new Die(i, j);
 		}
 	}
 	showScore();
-	showStats();
 }
 
 void mousePressed() {
@@ -38,19 +38,11 @@ void showScore() {
 	// text("number: " + counter, width / 2, 3 * height / 4);
 }
 
-void showStats() {
-	int y = 200;
-	for (HashMap.Entry<String, Integer> entry : hm.entrySet()) {
-		String nKey = entry.getKey();
-		int nVal = entry.getValue();
-		text(nKey + " " + nVal, 150, y);
-		y += 20;
-	}
-}
-
 class Die {
 	int myX, myY;
 	int myDieNum;
+	HashMap<String, Integer> hm = new HashMap<String, Integer>();
+
 	Die(int x, int y) {
 		myX = x;
 		myY = y;
@@ -68,12 +60,13 @@ class Die {
 		}
 		Set set = hm.entrySet();
 		Iterator it = set.iterator();
-		while (i.hasNext()) {
-			Map.Entry me = (Map.Entry)i.next();
+		while (it.hasNext()) {
+			Map.Entry me = (Map.Entry)it.next();
 			for (int i = 1; i < 7; i++) {
-				if (me.contains(Integer.toString(i))) {
-					me.getValue() += myDieNum;
+				if (me.getKey().toString().indexOf(Integer.toString(i)) != -1) {
+					hm.put(me.getKey().toString(), hm.get(me.getKey()) + myDieNum);
 				}
+				System.out.println(me.getValue());
 			}
 		}
 	}
