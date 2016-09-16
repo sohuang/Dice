@@ -58,7 +58,7 @@ class Die {
 		counter += myDieNum;
 		for (int i = 0; i < stats.length; i++) {
 			if (myDieNum == i + 1) {
-				stats[i] += myDieNum;
+				stats[i]++;
 			}
 		}
 	}
