@@ -1,5 +1,5 @@
-// import java.util.*;
 import java.util.Arrays;
+
 int[] stats = new int[6];
 int counter;
 int dieSize = 30;
@@ -46,7 +46,6 @@ void showScore() {
 class Die {
 	int myX, myY;
 	int myDieNum;
-	// HashMap<String, Integer> hm = new HashMap<String, Integer>();
 
 	Die(int x, int y) {
 		myX = x;
@@ -57,23 +56,6 @@ class Die {
 	void roll() {
 		myDieNum = (int)(Math.random() * 6) + 1;
 		counter += myDieNum;
-		// hm = new HashMap<String, Integer>();
-		// for (int i = 1; i < 7; i++) {
-		// 	if (i == myDieNum) {
-		// 		hm.put("n" + i, 0);
-		// 	}
-		// }
-		// Set set = hm.entrySet();
-		// Iterator it = set.iterator();
-		// while (it.hasNext()) {
-		// 	Map.Entry me = (Map.Entry)it.next();
-		// 	for (int i = 1; i < 7; i++) {
-		// 		if (me.getKey().toString().indexOf(Integer.toString(i)) != -1) {
-		// 			hm.put(me.getKey().toString(), hm.get(me.getKey()) + myDieNum);
-		// 		}
-		// 		System.out.println(me.getValue());
-		// 	}
-		// }
 		for (int i = 0; i < stats.length; i++) {
 			if (myDieNum == i + 1) {
 				stats[i] += myDieNum;
