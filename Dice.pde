@@ -8,26 +8,31 @@ int dieThird = dieSize / 3;
 int dieFour = dieHalf / 2;
 int dotSize = 5;
 int spacing = 10;
+int highScore = 0;
 PFont comic;
+PImage kanye;
 
 void setup() {
 	size(370, 375);
 	noLoop();
 	comic = loadFont("ComicSansMS-48.vlw");
-	textAlign(CENTER, CENTER);
 	textFont(comic);
+	kanye = loadImage("kanye.png");
 }
 
 void draw() {
 	background(0);
 	counter = 0;
 	Arrays.fill(stats, 0);
-	for (int j = spacing; j < (height * 3 / 4); j += dieSize + spacing) {
+	for (int j = spacing; j < (height / 2); j += dieSize + spacing) {
 		for (int i = spacing; i < width - dieSize; i += dieSize + spacing) {
 			Die die = new Die(i, j);
 		}
 	}
 	showScore();
+	showStats();
+	showHighScore();
+	encouragement();
 }
 
 void mousePressed() {
@@ -35,12 +40,42 @@ void mousePressed() {
 }
 
 void showScore() {
+	textAlign(LEFT);
 	fill(255);
 	textSize(20);
-	// text("number: " + counter, width / 2, 3 * height / 4);
-	for (int i = 0; i < stats.length; i++) {
-		System.out.println("Number of " + Integer.toString(i) + "s: " + Integer.toString(stats[i]));
+	text("total: " + counter, width / 2 - 40, height / 2 + 50);
+}
+
+void showStats() {
+	fill(255);
+	textSize(10);
+	int yPos = 275;
+	for (int i = 0; i < stats.length / 2; i++) {
+		text("Number of " + Integer.toString(i) + "s: " + Integer.toString(stats[i]), 50, yPos);
+		yPos += 20;
 	}
+	yPos = 275;
+	for (int i = stats.length / 2; i < stats.length; i++) {
+		text("Number of " + Integer.toString(i) + "s: " + Integer.toString(stats[i]), 250, yPos);
+		yPos += 20;
+	}
+}
+
+void showHighScore() {
+	fill(255);
+	textSize(20);
+	if (counter > highScore) {
+		highScore = counter;
+	}
+	if (highScore != 0) {
+		text("high score: " + Integer.toString(highScore), width / 2 - 60, height - 20);
+	}
+}
+
+void encouragement() {
+	kanye.resize(100, 0);
+	imageMode(CENTER);
+	image(kanye, width / 2, height - 90);
 }
 
 class Die {
