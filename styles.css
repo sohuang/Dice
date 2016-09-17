@@ -3,7 +3,7 @@ body {
     /*background: -webkit-linear-gradient(#ACD2E5, #F0D773);*/
     /*background: -o-linear-gradient(#ACD2E5, #F0D773);*/
     /*background: -moz-linear-gradient(#ACD2E5, #F0D773);*/
-    background: linear-gradient(#B2D8FF, #FFDD59);
+    background: linear-gradient(to right, #B2D8FF, #FFDD59);
     color: rgb(0,0,0);
     font-family: "Montserrat", sans-serif;
     text-align: center;
