@@ -1,8 +1,8 @@
 body {
-    background-color: #F0D773;
-    background: -webkit-linear-gradient(#ACD2E5, #F0D773);
-    background: -o-linear-gradient(#ACD2E5, #F0D773);
-    background: -moz-linear-gradient(#ACD2E5, #F0D773);
+    /*background-color: #F0D773;*/
+    /*background: -webkit-linear-gradient(#ACD2E5, #F0D773);*/
+    /*background: -o-linear-gradient(#ACD2E5, #F0D773);*/
+    /*background: -moz-linear-gradient(#ACD2E5, #F0D773);*/
     background: linear-gradient(#ACD2E5, #F0D773);
     color: rgb(0,0,0);
     font-family: "Montserrat", sans-serif;
