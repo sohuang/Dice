@@ -16,8 +16,8 @@ void setup() {
 	size(370, 375);
 	noLoop();
 	comic = loadFont("ComicSansMS-48.vlw");
-	textFont(comic);
 	kanye = loadImage("kanye.png");
+	textFont(comic);
 }
 
 void draw() {
