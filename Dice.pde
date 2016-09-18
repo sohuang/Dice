@@ -23,8 +23,8 @@ void setup() {
 void draw() {
 	background(0);
 	counter = 0;
-	for (int i = 0; i < stats.length; i++) {
-		stats[i] = 0;
+	for (thing : stats) {
+		thing = 0;
 	}
 	for (int j = spacing; j < (height / 2); j += dieSize + spacing) {
 		for (int i = spacing; i < width - dieSize; i += dieSize + spacing) {
