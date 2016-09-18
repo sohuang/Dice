@@ -23,9 +23,9 @@ void setup() {
 void draw() {
 	background(0);
 	counter = 0;
-	for (int thing : stats) {
-		thing = 0;
-	}
+	for (int k = 0; k < stats.length; k++) {
+ 		stats[k] = 0;
+ 	}
 	for (int j = spacing; j < (height / 2); j += dieSize + spacing) {
 		for (int i = spacing; i < width - dieSize; i += dieSize + spacing) {
 			Die die = new Die(i, j);
