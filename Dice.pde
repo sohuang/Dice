@@ -1,5 +1,3 @@
-// import java.util.Arrays;
-
 int[] stats = new int[6];
 int counter;
 int dieSize = 30;
@@ -17,6 +15,7 @@ void setup() {
 	noLoop();
 	// comic = loadFont("ComicSansMS-48.vlw");
 	kanye = loadImage("kanye.png");
+	kanye.resize(100, 0);
 	// textFont(comic);
 }
 
@@ -53,12 +52,12 @@ void showStats() {
 	textSize(10);
 	int yPos = 275;
 	for (int i = 0; i < stats.length / 2; i++) {
-		text("Number of " + Integer.toString(i) + "s: " + Integer.toString(stats[i]), 50, yPos);
+		text("Number of " + str(i) + "s: " + str(stats[i]), 50, yPos);
 		yPos += 20;
 	}
 	yPos = 275;
 	for (int i = stats.length / 2; i < stats.length; i++) {
-		text("Number of " + Integer.toString(i) + "s: " + Integer.toString(stats[i]), 250, yPos);
+		text("Number of " + str(i) + "s: " + str(stats[i]), 250, yPos);
 		yPos += 20;
 	}
 }
@@ -70,12 +69,11 @@ void showHighScore() {
 		highScore = counter;
 	}
 	if (highScore != 0) {
-		text("high score: " + Integer.toString(highScore), width / 2 - 60, height - 20);
+		text("high score: " + str(highScore), width / 2 - 60, height - 20);
 	}
 }
 
 void encouragement() {
-	kanye.resize(100, 0);
 	imageMode(CENTER);
 	image(kanye, width / 2, height - 90);
 }
