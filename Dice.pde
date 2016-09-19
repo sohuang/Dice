@@ -15,7 +15,6 @@ void setup() {
 	noLoop();
 	// comic = loadFont("ComicSansMS-48.vlw");
 	kanye = loadImage("kanye.png");
-	kanye.resize(100, 0);
 	// textFont(comic);
 }
 
@@ -74,6 +73,7 @@ void showHighScore() {
 }
 
 void encouragement() {
+	kanye.resize(100, 0);
 	imageMode(CENTER);
 	image(kanye, width / 2, height - 90);
 }
