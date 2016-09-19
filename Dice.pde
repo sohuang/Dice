@@ -73,7 +73,7 @@ void showHighScore() {
 }
 
 void encouragement() {
-	kanye.resize(100, 0);
+	kanye.resize(200, 202);
 	imageMode(CENTER);
 	image(kanye, width / 2, height - 90);
 }
