@@ -1,4 +1,4 @@
-import java.util.Arrays;
+// import java.util.Arrays;
 
 int[] stats = new int[6];
 int counter;
