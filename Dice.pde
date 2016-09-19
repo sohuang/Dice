@@ -7,15 +7,16 @@ int dieFour = dieHalf / 2;
 int dotSize = 5;
 int spacing = 10;
 int highScore = 0;
-// PFont comic;
+PFont comic;
 PImage kanye;
 
 void setup() {
 	size(370, 375);
 	noLoop();
-	// comic = loadFont("ComicSansMS-48.vlw");
+	comic = loadFont("ComicSansMS-48.vlw");
 	kanye = loadImage("kanye.png");
-	// textFont(comic);
+	encouragement();
+	textFont(comic);
 }
 
 void draw() {
